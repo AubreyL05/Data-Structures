@@ -46,8 +46,6 @@ The following tasks have been completed as per the assignment instructions.
 
 ### Notes & Information
 
-* The code is designed to handle edge cases such as empty lists. `getMin()` and `getRange()` will throw an `std::out_of_range` exception if called on an empty list.
-
 * The `DuplicateSE` function for `AUList` handles invalid index ranges by returning an empty list, as specified by the problem.
 
-* I've included a basic `main.cpp` file to serve as a driver for testing the functions with sample inputs.
+* I've updated the `main.cpp` file with extra test for the new functions `getMin()` `getRange()` `DuplicateSE`.
