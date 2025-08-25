@@ -44,6 +44,20 @@ The following tasks have been completed as per the assignment instructions.
 
 ---
 
+## How to Compile and Run
+
+To build and run the program from the terminal:
+
+```bash
+# Compile the program
+g++ main.cpp AUList.cpp LLUList.cpp -o myprogram
+
+# Run the program
+./myprogram
+```
+
+---
+
 ### Notes & Information
 
 * The `DuplicateSE` function for `AUList` handles invalid index ranges by returning an empty list, as specified by the problem.
