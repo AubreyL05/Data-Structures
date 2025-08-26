@@ -61,10 +61,6 @@ void AUList::PrintList() { //simple function to print a list's items in stored o
 }
 
 int AUList::getMin() {
-    // Check if the list is empty. If so, throw an exception.
-    if (length == 0) {
-        throw std::runtime_error("List is empty. Cannot find minimum element.");
-    }
     int minVal = ListItems[0];
     for (int i = 1; i < length; ++i) {
         if (ListItems[i] < minVal) {
@@ -75,12 +71,7 @@ int AUList::getMin() {
 }
 
 int AUList::getRange() {
-    // Check if the list is empty. If so, throw an exception.
-    if (length == 0) {
-        throw std::runtime_error("List is empty. Cannot compute range.");
-    }
-
-    int minVal = getMin(); // Ensure minVal is initialized
+    int minVal = getMin();
 
     int maxVal = ListItems[0];
     for(int i = 1; i < length; ++i){

@@ -122,10 +122,6 @@ void LLUList::PrintList() {
 }
 
 int LLUList::getMin() {
-    // Check if the list is empty. If so, throw an exception.
-    if (ListStart == NULL) {
-        throw std::runtime_error("List is empty. No minimum value.");
-    }
 
     int minVal = ListStart->item;
     LNode* location = ListStart->next;
@@ -141,11 +137,7 @@ int LLUList::getMin() {
 }
 
 int LLUList::getRange() {
-    // Check if the list is empty. If so, throw an exception.
-    if (ListStart == NULL) {
-        throw std::runtime_error("List is empty. Cannot compute range.");
-    }
-
+  
     int minVal = ListStart->item;
     int maxVal = ListStart->item;
     LNode* location = ListStart->next;
