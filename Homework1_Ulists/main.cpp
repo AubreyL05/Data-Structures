@@ -14,12 +14,22 @@ int main(int argc, char** argv) {
     std::cout << "Minimum value in AUList: " << TestList.getMin() << std::endl;
     std::cout << "Range of values in AUList: " << TestList.getRange() << std::endl;
 
+    AUList dup = TestList.DuplicateSE(1, 3);
+    std::cout << "Duplicated sublist (1 to 3): ";
+    dup.PrintList();
+
+    AUList dup2 = TestList.DuplicateSE(4, 5);
+    std::cout << "Duplicated sublist (4 to 5): ";
+    dup2.PrintList();
+
+
 	std::cout<<"Length after 'PutItem' calls: " <<TestList.GetLength() <<std::endl;
 	std::cout<<"IsFull after 'PutItem' calls? " <<TestList.IsFull() <<std::endl;
 	TestList.DeleteItem(50);
 	std::cout<<"List after 'DeleteItem' (50) call: ";
 	TestList.PrintList();
 	std::cout<<"IsFull after 'DeleteItem' call? " <<TestList.IsFull() <<std::endl;
+
 	std::cout<<"Index of value 80: "<<TestList.GetItem(80)<<std::endl;
 	std::cout<<"Index of value 25: "<<TestList.GetItem(25)<<std::endl;
 	TestList.MakeEmpty();
@@ -38,21 +48,6 @@ int main(int argc, char** argv) {
 
     std::cout << "Minimum value in LLUList: " << TestList2.getMin() << std::endl;
     std::cout << "Range of values in LLUList: " << TestList2.getRange() << std::endl;
-
-    AUList myAL;
-    myAL.PutItem(55);
-    myAL.PutItem(11);
-    myAL.PutItem(33);
-    myAL.PutItem(99);
-    myAL.PutItem(77);
-    myAL.PutItem(111);
-
-    std::cout << "Original AUList: ";
-    myAL.PrintList();
-
-    AUList dup = myAL.DuplicateSE(1, 3);
-    std::cout << "Duplicated sublist (1 to 3): ";
-    dup.PrintList();
 
 	std::cout<<"Length after 'PutItem' (100 down to 10) calls: " <<TestList2.GetLength() <<std::endl;
 	std::cout<<"IsFull after 'PutItem' calls? " <<TestList2.IsFull() <<std::endl;
