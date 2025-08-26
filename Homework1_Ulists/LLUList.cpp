@@ -138,14 +138,12 @@ int LLUList::getMin() {
 
 int LLUList::getRange() {
   
-    int minVal = ListStart->item;
+    int minVal = getMin();
+
     int maxVal = ListStart->item;
     LNode* location = ListStart->next;
 
     while (location != NULL) {
-        if (location->item < minVal) {
-            minVal = location->item;
-        }
         if (location->item > maxVal) {
             maxVal = location->item;
         }
