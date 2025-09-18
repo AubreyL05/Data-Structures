@@ -54,3 +54,18 @@ To solve this problem efficiently, it is recommended you use the provided data s
 * **Helper Functions:** You may use helper functions, but they must all be defined within the `stringdecoding.cpp` file.
 * **Include Directives:** Simply `#include "StackType.h"` and `#include "QueType.h"` in your `stringdecoding.cpp` file.
 * **Variable Initialization:** Explicitly initialize all variables. For example: `int myInt = 0;`.
+
+---
+
+## Compiling and Running
+
+To test your code, you will need a separate file, typically `main.cpp`, which contains the `main` function to call your `decode` function.
+
+### Compilation
+
+You must compile both your `main.cpp` and `stringdecoding.cpp` files together. Use a C++ compiler like `g++` from your terminal.
+
+```bash
+g++ main.cpp stringdecoding.cpp -o decoder_test
+./decoder_test
+```
