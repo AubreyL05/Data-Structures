@@ -1,29 +1,38 @@
 #include <iostream>
 #include <string>
+#include "stringdecoding.h" // Assuming you're using the header file approach
 
-#include "stringdecoding.h"
+void run_test(const std::string& exp, const std::string& code, const std::string& expected_output, int test_number) {
+    std::cout << "--- Test Case " << test_number << " ---" << std::endl;
+    std::cout << "Input Expression: " << exp << std::endl;
+    std::cout << "Input Code: " << code << std::endl;
+    
+    std::string decoded_string = decode(exp, code);
+    
+    std::cout << "Decoded String: " << decoded_string << std::endl;
+    std::cout << "Expected Output: " << expected_output << std::endl;
+
+    if (decoded_string == expected_output) {
+        std::cout << "Result: Test PASSED! ✅" << std::endl;
+    } else {
+        std::cout << "Result: Test FAILED. ❌" << std::endl;
+    }
+    std::cout << std::endl;
+}
 
 int main() {
-    // Define the input strings from the assignment
-    std::string exp = "czitqommta_ehmumt_nio_szozir_eulopupoa_yeht_";
-    std::string code = "_acefhilnpst";
+    // Original Assignment Test Case
+    run_test("czitqommta_ehmumt_nio_szozir_eulopupoa_yeht_", "_acefhilnpst", "zqommmumozozruouoy_the_apple_is_in_the_attic", 1);
 
-    // Call your decode function
-    std::string decoded_string = decode(exp, code);
+    // Basic Cases
+    run_test("hello", "aeiou", "hlloe", 2);
+    run_test("programming", "p", "rogrammingp", 3);
 
-    // Print the output to the console
-    std::cout << "Original String: " << exp << std::endl;
-    std::cout << "Code String: " << code << std::endl;
-    std::cout << "Decoded String: " << decoded_string << std::endl;
-
-    // Check if the output matches the expected output
-    std::string expected_output = "zqommmumozozruouoy_the_apple_is_in_the_attic";
-    if (decoded_string == expected_output) {
-        std::cout << "Test passed! ✅" << std::endl;
-    } else {
-        std::cout << "Test failed. ❌" << std::endl;
-        std::cout << "Expected: " << expected_output << std::endl;
-    }
+    // Edge Cases
+    run_test("", "abc", "", 4); // Empty exp string
+    run_test("hello", "", "hello", 5); // Empty code string
+    run_test("apple", "aple", "elppa", 6); // All code characters
+    run_test("xyz", "123", "xyz", 7); // No code characters
 
     return 0;
 }
