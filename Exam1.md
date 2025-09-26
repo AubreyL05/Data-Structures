@@ -182,11 +182,6 @@ class AUList{
         int length;
 }
 
-struct LNode{
-    int item;
-    LNode* next;
-}
-
 class LLUList{
     LNode* head;
 }
@@ -211,7 +206,7 @@ class LLUList{
 ### Array
 * Floating Queue
     * Let front and read indices **float** within the queue.
-*
+
 ### Linked-List
 * LLQueue
     * Enqueue would be inefficient without a secondary rear pointer.
