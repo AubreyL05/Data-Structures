@@ -1,4 +1,5 @@
 #include "BST.h"
+#include <climits>
 using namespace std;
 
   
@@ -217,3 +218,18 @@ void BST::ResetTree(OrderType order) {
   
 }
 
+int BST::GetHeight(){
+  if (root == nullptr) return -1;
+  return GetHeightRecursive(root);
+}
+
+int BST::GetHeightRecursive(TNode* node){
+  if (node == nullptr) return -1;
+  int leftHeight = GetHeightRecursive(node->left);
+  int rightHeight = GetHeightRecursive(node->right);
+  return max(leftHeight, rightHeight) + 1;
+}
+
+void BST::SplitBalance(){
+  
+}

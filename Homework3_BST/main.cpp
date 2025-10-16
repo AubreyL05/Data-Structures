@@ -38,4 +38,32 @@ int main() {
       cout<<", ";
   }
   cout<<endl;
+
+cout << "=== 2. Testing GetHeight() ===" << endl;
+    
+  // Height of the current tree
+  int height1 = myBST.GetHeight();
+  cout << "Height of My Tree (after deleting 3): " << height1 << endl;
+    
+  // Test a skewed tree (all right children)
+  BST skewedBST;
+  skewedBST.PutItem(10);
+  skewedBST.PutItem(20);
+  skewedBST.PutItem(30);
+  skewedBST.PutItem(40);
+  cout << "Inserting Skewed: 10, 20, 30, 40" << endl;
+  skewedBST.PrintTree();
+  int height2 = skewedBST.GetHeight();
+  cout << "Height of Skewed Tree (4 nodes): " << height2 << " (Expected: 3)" << endl;
+
+  // Test an Empty Tree
+  BST emptyBST;
+  int height3 = emptyBST.GetHeight();
+  cout << "Height of Empty Tree: " << height3 << " (Expected: -1)" << endl;
+
+  // Test a Single node Tree
+  BST singleBST;
+  singleBST.PutItem(67);
+  int height4 = singleBST.GetHeight();
+  cout << "Height of Single-Node Tree: " << height4 << " (Expected: 0)" << endl;
 }
