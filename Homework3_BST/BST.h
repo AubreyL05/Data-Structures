@@ -1,5 +1,9 @@
 #include <iostream>
 #include "CLQueue.h"
+#include <vector>
+using namespace std;
+
+
 struct TNode {
   public:
   int item;
@@ -48,6 +52,7 @@ class BST {
   void InNodes(TNode* curNode);
   void PostNodes(TNode* curNode);
   int GetHeightRecursive(TNode* node);
+  TNode* BalanceTree(vector<int>& nodes, int start, int end);
   
   TNode *root;
   CLQueue *TravQueue;

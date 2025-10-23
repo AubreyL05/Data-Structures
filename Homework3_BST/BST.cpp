@@ -1,5 +1,6 @@
 #include "BST.h"
 #include <climits>
+#include <vector>
 using namespace std;
 
   
@@ -219,17 +220,41 @@ void BST::ResetTree(OrderType order) {
 }
 
 int BST::GetHeight(){
-  if (root == nullptr) return -1;
+  if (root == nullptr) return -1; // If the tree is empty, height is -1
   return GetHeightRecursive(root);
 }
 
 int BST::GetHeightRecursive(TNode* node){
-  if (node == nullptr) return -1;
-  int leftHeight = GetHeightRecursive(node->left);
-  int rightHeight = GetHeightRecursive(node->right);
-  return max(leftHeight, rightHeight) + 1;
+  if (node == nullptr) return -1; // Base case
+  int leftHeight = GetHeightRecursive(node->left); // Recursively get height of left subtree
+  int rightHeight = GetHeightRecursive(node->right); // Recursively get height of right subtree
+  return max(leftHeight, rightHeight) + 1; // Height is max of left/right subtree heights plus 1 for current node
 }
 
 void BST::SplitBalance(){
-  
+  if (root == nullptr) return; // If the tree is empty, nothing to balance
+  vector<int> nodes;
+  ResetTree(IN_ORDER); // Fill traverse queue with in order traversal
+  while(!TravEmpty()){
+    nodes.push_back(GetNextItem()); // Dequeue and return item
+  }
+  MakeEmpty(); // Destroy old tree
+
+  root = BalanceTree(nodes, 0, GetLength() - 1); // Recursive function
+
+}
+
+TNode* BST::BalanceTree(vector<int>& nodes, int start, int end){
+  if (start > end) return nullptr; // Base case
+
+  int mid = (end-start)/2;
+
+  // Create new root using the middle value.
+  TNode* newRoot = new TNode;
+  newRoot->item = nodes[mid];
+
+  newRoot->left = BalanceTree(nodes, start, mid - 1); // Rebuild the left subtree
+  newRoot->right = BalanceTree(nodes, mid + 1, end); // Rebuild the right subtree
+
+  return newRoot;
 }
