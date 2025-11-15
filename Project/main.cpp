@@ -30,7 +30,7 @@ void loadCSV(const string& csv, ASList& list){
         getline(ss, value, ',');
         p.length_of_stay = stoi(value);
 
-        list.insert(p);
+        list.PutItem(p);
     }
 }
 

@@ -5,7 +5,7 @@ ASList::ASList() {
     length = 0;
 }
 
-void ASList::insert(const Patient& p) {
+void ASList::PutItem(const Patient& p) {
     int i = length - 1;
     while (i >= 0 && !(data[i] > p)) {
         data[i + 1] = data[i];

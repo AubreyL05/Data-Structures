@@ -21,7 +21,7 @@ private:
 public:
     ASList();
     
-    void insert(const Patient& p);
+    void PutItem(const Patient& p);
     void print() const;
     void printFiltered(int days) const;
 };
