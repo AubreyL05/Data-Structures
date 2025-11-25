@@ -5,6 +5,8 @@ PQueue::PQueue() {
     length = 0;
 }
 
+// Reheaps use recursion as shown in class
+
 void PQueue::ReheapUp(int top, int bottom) {
     if (bottom > top) {
         int parent = (bottom - 1) / 2;
