@@ -26,8 +26,6 @@ private:
 
 public:
     PQueue();
-    bool isFull() const;
-    bool isEmpty() const;
 
     bool checkMaxHeap() const;
     void PutItem(const Player& p);

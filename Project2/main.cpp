@@ -45,17 +45,17 @@ int main() {
         cout << "Heap property is broken!\n";
 
     int input = 0;    
-    cout << "Enter the number of top players to display (5 - 250):";
+    cout << "Enter the number of top players to display (5 - 250): ";
     cin >> input;
 
     if (input >= 5 && input <= 250){
-        cout << "\nTop " << input << " EV50 Players: " << endl;
+        cout << "\n" << input << " Highest EV50 Hitters: " << endl;
         cout << left 
              << setw(25) << "Name" 
              << setw(6) << "EV50" << endl;
         cout << "-----------------------------------\n";
 
-        for (int i = 0; i < input && !pq.isEmpty(); i++) {
+        for (int i = 0; i < input; i++) {
             Player p = pq.GetItem();  // pops max EV50
             cout << left 
                 << setw(25) << p.name 

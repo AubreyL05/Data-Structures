@@ -5,14 +5,6 @@ PQueue::PQueue() {
     length = 0;
 }
 
-bool PQueue::isFull() const {
-    return length == MAXSIZE;
-}
-
-bool PQueue::isEmpty() const {
-    return length == 0;
-}
-
 void PQueue::ReheapUp(int top, int bottom) {
     if (bottom > top) {
         int parent = (bottom - 1) / 2;
@@ -41,6 +33,7 @@ void PQueue::ReheapDown(int top, int bottom) {
     }
 }
 
+// Ensures structure is a correct max heap
 bool PQueue::checkMaxHeap() const {
     for (int i = 0; i <= (length - 2)/2; i++) {
         int left = 2*i + 1;
@@ -52,22 +45,12 @@ bool PQueue::checkMaxHeap() const {
 }
 
 void PQueue::PutItem(const Player& p) {
-    if (isFull()) {
-        cout << "Queue is full.\n";
-        return;
-    }
-
     data[length] = p;
     ReheapUp(0, length);
     length++;
 }
 
 Player PQueue::GetItem() {
-    if (isEmpty()) {
-        cout << "Queue is empty.\n";
-        return Player();
-    }
-
     Player maxItem = data[0];
     data[0] = data[length - 1];
     length--;
