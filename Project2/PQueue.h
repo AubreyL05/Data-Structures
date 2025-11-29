@@ -9,10 +9,6 @@ struct Player{
     string name;
     string team;
     float ev50;
-
-    bool operator>(const Player& other) const {
-        return ev50 < other.ev50; // descending (max heap)
-    }
 };
 
 class PQueue {

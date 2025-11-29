@@ -5,7 +5,7 @@ PQueue::PQueue() {
     length = 0;
 }
 
-// Reheaps use recursion as shown in class
+// Both Reheaps use recursion
 
 void PQueue::ReheapUp(int top, int bottom) {
     if (bottom > top) {
@@ -35,7 +35,23 @@ void PQueue::ReheapDown(int top, int bottom) {
     }
 }
 
-// Ensures structure is a correct max heap
+// Adds new item to the end of array then reheaps up into max heap.
+void PQueue::PutItem(const Player& p) {
+    data[length] = p;
+    ReheapUp(0, length);
+    length++;
+}
+
+// Removes and returns the maximum item (root) from the heap.
+Player PQueue::GetItem() {
+    Player maxItem = data[0];
+    data[0] = data[length - 1];
+    length--;
+    ReheapDown(0, length - 1);
+    return maxItem;
+}
+
+// Ensures structure is a max heap
 bool PQueue::checkMaxHeap() const {
     for (int i = 0; i <= (length - 2)/2; i++) {
         int left = 2*i + 1;
@@ -44,20 +60,6 @@ bool PQueue::checkMaxHeap() const {
         if (right < length && data[i].ev50 < data[right].ev50) return false;
     }
     return true;
-}
-
-void PQueue::PutItem(const Player& p) {
-    data[length] = p;
-    ReheapUp(0, length);
-    length++;
-}
-
-Player PQueue::GetItem() {
-    Player maxItem = data[0];
-    data[0] = data[length - 1];
-    length--;
-    ReheapDown(0, length - 1);
-    return maxItem;
 }
 
 void PQueue::print() const {
@@ -69,7 +71,7 @@ void PQueue::print() const {
     cout << "------------------------------------------------\n";
 
     for (int i = 0; i < length; i++) {
-        cout << left 
+        cout << left
              << setw(5) << data[i].rank
              << setw(25) << data[i].name
              << setw(6) << data[i].team
