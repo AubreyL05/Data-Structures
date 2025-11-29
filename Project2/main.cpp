@@ -37,7 +37,7 @@ int main() {
     loadCSV("EV50.csv", pq);
     cout << "csv loaded" << endl;
 
-    pq.print();  // optional: prints the heap array
+    pq.print();  // prints the whole heap
 
     if (pq.checkMaxHeap())
         cout << "Heap property is valid!\n";
@@ -48,6 +48,7 @@ int main() {
     cout << "Enter the number of top players to display (5 - 250): ";
     cin >> input;
 
+    // prints the specified number of top players
     if (input >= 5 && input <= 250){
         cout << "\n" << input << " Highest EV50 Hitters: " << endl;
         cout << left 
